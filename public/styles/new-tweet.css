@@ -22,11 +22,8 @@
   resize: vertical; 
   width: 100%;
   font-size: 16px;
-}
-
-.new-tweet textarea::placeholder {
-  font-size: 25px;
-  color: #2d2d2d; 
+  line-height: 0.95;
+  resize: none;
 }
 
 .new-tweet div {
