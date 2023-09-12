@@ -15,9 +15,16 @@ html {
  */
 
 body {
+  font-family: "Source Sans 3", sans-serif;
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+}
+
+main {
+  width: 90%;
+  margin: 0 auto; 
+  background-color: #f4f1ec; 
 }
 
 /*

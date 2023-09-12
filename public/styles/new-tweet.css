@@ -1,0 +1,52 @@
+.new-tweet {
+  font-family: "Source Sans 3", sans-serif;
+  background-color: #F8F8F8; /* Set the background color as desired */
+  padding: 20px;
+}
+
+.new-tweet h2 {
+  font-size: 24px;
+  margin-bottom: 10px; 
+}
+
+.new-tweet form {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-tweet textarea {
+  outline: none;
+  border: none;
+  background: none;
+  border-bottom: 4px solid #2d2d2d;
+  resize: vertical; 
+  width: 100%;
+  font-size: 16px;
+}
+
+.new-tweet textarea::placeholder {
+  font-size: 25px;
+  color: #2d2d2d; 
+}
+
+.new-tweet div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px; 
+}
+
+.new-tweet button {
+  font-family: "Bungee", sans-serif;
+  background-color: #4056A1; 
+  color: #FFFFFF; 
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px; 
+}
+
+.new-tweet .counter {
+  font-family: "Bungee", sans-serif;
+  color: #2d2d2d; 
+  font-size: 16px; 
+}
