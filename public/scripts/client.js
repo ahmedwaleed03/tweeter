@@ -66,7 +66,7 @@ let data = {
 };
 
 const renderTweets = (tweets) => {
-  $( document ).ready(function() {
+  $(document).ready(function() {
     for (const tweet in tweets) {
       $("#tweets").append(createTweetElement(tweets[tweet]));
     }
@@ -74,67 +74,65 @@ const renderTweets = (tweets) => {
 }
 
 const createTweetElement = (tweet) => {
-  $( document ).ready(function() {
-    const $tweet = $("<article>");
+  const $tweet = $("<article>");
 
-    const $header = $("<header>");
-    const $profilePic = $("<img>").attr('src', tweet.user.avatars);
-    const $name = $("<p>").text(tweet.user.name);
-    const $handle = $("<p>").text(tweet.user.handle).addClass('handle');
+  const $header = $("<header>");
+  const $profilePic = $("<img>").attr('src', tweet.user.avatars);
+  const $name = $("<p>").text(tweet.user.name);
+  const $handle = $("<p>").text(tweet.user.handle).addClass('handle');
 
-    const $text = $("<div>");
-    const $tweetContent = $("<p>").text(tweet.content.text);
+  const $text = $("<div>");
+  const $tweetContent = $("<p>").text(tweet.content.text);
 
-    const $footer = $("<footer>");
-    const $icons = $("<p>").addClass('icons');
-    const $time = $("<p>").text(setTime(tweet.created_at));
-    const $flag = $("<i class='fa-solid fa-flag'></i>");
-    const $retweet = $("<i class='fa-solid fa-retweet'></i>");
-    const $heart = $("<i class='fa-solid fa-heart'></i>");
+  const $footer = $("<footer>");
+  const $icons = $("<p>").addClass('icons');
+  const $time = $("<p>").text(setTime(tweet.created_at));
+  const $flag = $("<i class='fa-solid fa-flag'></i>");
+  const $retweet = $("<i class='fa-solid fa-retweet'></i>");
+  const $heart = $("<i class='fa-solid fa-heart'></i>");
 
-    // hover events
-    $tweet.hover(
-      (event) => {
-        $(event.currentTarget).css("box-shadow", "5px 5px #CBC3E3");
-      },
-      (event) => {
-        $(event.currentTarget).css("box-shadow", ""); t
-      }
-    );
-    $flag.hover(
-      (event) => {
-      $(event.currentTarget).css("color", '#FFBF00');
-      },
-      (event) => {
-        $(event.currentTarget).css("color", '#4056A1');
-      }
-    );
-    $retweet.hover(
-      (event) => {
-      $(event.currentTarget).css("color", '#FFBF00');
-      },
-      (event) => {
-        $(event.currentTarget).css("color", '#4056A1');
-      }
-    );
-    $heart.hover(
-      (event) => {
-      $(event.currentTarget).css("color", '#FFBF00');
-      },
-      (event) => {
-        $(event.currentTarget).css("color", '#4056A1');
-      }
-    );
+  // hover events
+  $tweet.hover(
+    (event) => {
+      $(event.currentTarget).css("box-shadow", "5px 5px #CBC3E3");
+    },
+    (event) => {
+      $(event.currentTarget).css("box-shadow", "");
+    }
+  );
+  $flag.hover(
+    (event) => {
+    $(event.currentTarget).css("color", '#FFBF00');
+    },
+    (event) => {
+      $(event.currentTarget).css("color", '#4056A1');
+    }
+  );
+  $retweet.hover(
+    (event) => {
+    $(event.currentTarget).css("color", '#FFBF00');
+    },
+    (event) => {
+      $(event.currentTarget).css("color", '#4056A1');
+    }
+  );
+  $heart.hover(
+    (event) => {
+    $(event.currentTarget).css("color", '#FFBF00');
+    },
+    (event) => {
+      $(event.currentTarget).css("color", '#4056A1');
+    }
+  );
 
-    $header.append($profilePic, $name, $handle);
-    $text.append($tweetContent);
-    $icons.append($flag, $retweet, $heart);
-    $footer.append($time, $icons);
+  $header.append($profilePic, $name, $handle);
+  $text.append($tweetContent);
+  $icons.append($flag, $retweet, $heart);
+  $footer.append($time, $icons);
 
-    $tweet.append($header, $text, $footer);
+  $tweet.append($header, $text, $footer);
     
-    return $tweet;
-  }); 
+  return $tweet;
 };
 
 renderTweets(data);
