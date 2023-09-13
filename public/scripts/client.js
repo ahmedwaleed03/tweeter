@@ -136,3 +136,13 @@ const createTweetElement = (tweet) => {
 };
 
 renderTweets(data);
+
+$(document).ready(function () {
+  $('#tweet-form').on('submit', function(event) {
+    event.preventDefault();
+    let serializedData = $(this).serialize();
+    console.log(serializedData);
+
+    $.post('/tweets', serializedData);
+  });
+});
