@@ -1,4 +1,4 @@
-header {
+.header {
   height: 520px;
   width: 100%;
   display: flex;
@@ -11,18 +11,18 @@ header {
   color: #FFFFFF;
 }
 
-header .image {
+.header .image {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 80px; 
 }
 
-header .name {
+.header .name {
   text-align: center;
   margin: 0;
 }
 
-header .name h2 {
+.header .name h2 {
   margin: 0;
 }
