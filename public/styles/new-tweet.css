@@ -46,3 +46,19 @@
   color: #2d2d2d; 
   font-size: 16px; 
 }
+
+.new-tweet .error {
+  display: flex;
+  justify-content: center;
+  border: 2px solid red;
+  margin-bottom: 30px;
+  color: red;
+}
+.new-tweet .message {
+  color: red;
+}
+
+.new-tweet .hidden {
+  display: none;
+  color: red; 
+}
