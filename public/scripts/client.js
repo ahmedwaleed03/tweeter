@@ -2,7 +2,7 @@
  * Client-side JS logic goes here
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+*/
 $(document).ready(function () {
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
@@ -32,7 +32,7 @@ $(document).ready(function () {
       $.post('/tweets', serializedData)
         .done(function () {
           $form.find('textarea[name="text"]').val('');
-          $form.find('output[name="counter"').val(140);
+          $form.find('output[name="counter"]').val(140);
           updateTweets();
       });
     }
@@ -40,39 +40,10 @@ $(document).ready(function () {
 });
 
 const setTime = (time) => {
-  const currentTime = new Date().getTime();
-  const tweetTime = new Date(time);
-  const difference = currentTime - tweetTime;
-
-  // time units
-  const min = 60 * 1000;
-  const hour = min * 60;
-  const day = hour * 24;
-  const week = day * 7;
-  const month = day * 30;
-  const year = month * 12;
-
-  if (difference < min) {
-    return "Just now";
-  } else if (difference < hour) {
-    let minsAgo = Math.floor(difference / min);
-    return (`${minsAgo} ${minsAgo === 1 ? 'minute' : 'minutes'} ago`);
-  } else if (difference < day) {
-    let hoursAgo = Math.floor(difference / hour);
-    return (`${hoursAgo} ${hoursAgo === 1 ? 'hour' : 'hours'} ago`);
-  } else if (difference < week) {
-    let daysAgo = Math.floor(difference / day);
-    return (`${daysAgo} ${daysAgo === 1 ? 'day' : 'days'} ago`);
-  } else if (difference < month) {
-    let weeksAgo = Math.floor(difference / week);
-    return (`${weeksAgo} ${weeksAgo === 1 ? 'week' : 'weeks'} ago`);
-  } else if (difference < year) {
-    let monthsAgo = Math.floor(difference / month);
-    return (`${monthsAgo} ${monthsAgo === 1 ? 'month' : 'months'} ago`);
-  } else {
-    let yearsAgo = Math.floor(difference / year);
-    return (`${yearsAgo} ${yearsAgo === 1 ? 'year' : 'years'} ago`);
-  }
+    // Calculate the "time ago" text and update the element
+    const timeAgoText = timeago.format(new Date(time));
+    
+    return timeAgoText;
 };
 
 const updateTweets = () => {
@@ -91,7 +62,7 @@ const loadTweets = () => {
 const renderTweets = (tweets) => {
   $(document).ready(function() {
     for (const tweet in tweets) {
-      $("#tweets").append(createTweetElement(tweets[tweet]));
+      $("#tweets").prepend(createTweetElement(tweets[tweet]));
     }
   });
 }
