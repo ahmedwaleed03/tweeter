@@ -59,14 +59,16 @@
 }
 
 .new-tweet .error {
-  display: flex;
-  justify-content: center;
   border: 2px solid red;
   margin-bottom: 30px;
   color: red;
+  text-align: center;
+  padding:6px;
 }
+
 .new-tweet .message {
   color: red;
+  padding: 4px;
 }
 
 .new-tweet .hidden {

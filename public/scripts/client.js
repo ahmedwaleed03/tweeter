@@ -5,7 +5,9 @@
 */
 $(document).ready(function () {
   $('#tweet-form').on('submit', function(event) {
+    // ensure page does not submit
     event.preventDefault();
+
     let input = event.target.text.value;
     let $errorElement = $('#error');
     
@@ -13,16 +15,19 @@ $(document).ready(function () {
     $errorElement.slideUp();
     $errorElement.empty();
 
+    // load error if text field is empty
     if (input === null || input === "") {
       $('#message').text("Tweet cannot be empty");
       $errorElement.text("Error: Tweet cannot be empty.").slideDown();
     }
 
+    // load error if there are two many characters
     if (input.length > 140) {
       $('#message').text("Too long! Please follow 140 character limit");
       $errorElement.text("Error: Too long! Please follow 140 character limit.").slideDown();
     }
 
+    // success case
     if (input !== null && input !== "" && input.length <= 140) {
       let serializedData = $(this).serialize();
       console.log(serializedData);
@@ -40,14 +45,13 @@ $(document).ready(function () {
 });
 
 const setTime = (time) => {
-    // Calculate the "time ago" text and update the element
     const timeAgoText = timeago.format(new Date(time));
-    
     return timeAgoText;
 };
 
 const updateTweets = () => {
   $.get('/tweets', (data) => {
+    // retrieve the latest tweet
     const latestTweet = data[data.length - 1];
     $('#tweets').prepend(createTweetElement(latestTweet));
   });
@@ -68,6 +72,7 @@ const renderTweets = (tweets) => {
 }
 
 const createTweetElement = (tweet) => {
+  // create all elements
   const $tweet = $("<article>");
 
   const $header = $("<header>");
@@ -122,11 +127,13 @@ const createTweetElement = (tweet) => {
     }
   );
 
+  // append all contents for header and footer
   $header.append($profilePic, $name, $handle);
   $text.append($tweetContent);
   $icons.append($flag, $retweet, $heart);
   $footer.append($time, $icons);
 
+  // append all items to the article
   $tweet.append($header, $text, $footer);
     
   return $tweet;
