@@ -32,6 +32,7 @@ $(document).ready(function () {
       $.post('/tweets', serializedData)
         .done(function () {
           $form.find('textarea[name="text"]').val('');
+          $form.find('output[name="counter"').val(140);
           updateTweets();
       });
     }

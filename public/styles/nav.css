@@ -9,6 +9,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   align-content: center;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 }
 
 nav span {
@@ -21,9 +22,6 @@ nav .tweet-button {
   align-items: center;
 }
 
-/* nav .tweet-button p {
-} */
-
 nav .tweet-button i.fa-solid {
   font-size: 20px;
   color: red;
@@ -33,4 +31,13 @@ nav .tweet-button .message {
   font-family: "Source Sans 3", sans-serif;
   font-size: 25px;
   margin: 0;
+}
+
+@media (max-width: 1024px) {
+  nav {
+    top: 0;
+    position: fixed;
+    background-color: transparent;
+    z-index: 2;
+  }
 }

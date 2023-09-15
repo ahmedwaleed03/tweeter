@@ -32,7 +32,9 @@
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
-    
+    <!-- Disable viewport zooming -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
   </head>
 
   <body>
@@ -51,7 +53,7 @@
       </div>
       <br>
       <div class="name">
-          <h2>Waleed Ahmed</h2>
+          <h2>Amy Mansell</h2>
       </div>
     </header>
 
@@ -61,10 +63,9 @@
         <h2>Compose Tweet</h2>
         <form id="tweet-form" action="/tweets" method="POST">
           <div id="error" class="hidden error">
-            <p id="message">⚠️⚠️ Error ⚠️⚠️</p>
+            <p id="message">Error</p>
           </div>
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div>
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
